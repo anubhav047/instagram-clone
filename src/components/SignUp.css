@@ -17,7 +17,7 @@
     align-items: center;
     padding: 10px 5px;
     width: 25%;
-    height: 50%;
+    height: 60%;
 }
 .signup-logo{
     width: 60%;
@@ -79,8 +79,8 @@
     
     }
     .signup-form-container{
-        width: 60%;
-        height: 60%;
+        width: 70%;
+        height: 70%;
     }
 }
 

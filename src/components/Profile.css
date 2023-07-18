@@ -1,0 +1,34 @@
+.profile {
+    max-width: 700px;
+    margin: 10px auto;
+  }
+  .profile-top{
+    /* border:1px solid rgb(176,176,176); */
+    display: flex;
+    text-align: left;
+  }
+  .profile-top h2{
+    margin-top: 40px;
+    margin-bottom: 0;
+  }
+  .profile-top h3{
+    margin-top: 7px;
+  }
+  .profile-top p{
+    font-size: 16px;
+  }
+  .profile-pic img{
+    width: 200px;
+    border-radius: 100px;
+    margin: 10px;
+    padding:10px ;
+  }
+
+  .gallery{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .gallery img{
+    width:30%;
+    margin:10px;
+  }
