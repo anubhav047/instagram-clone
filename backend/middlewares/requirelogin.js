@@ -1,0 +1,23 @@
+const jwt = require("jsonwebtoken");
+const { Jwt_secret } = require("../strings");
+const USER = require("../models/user");
+
+module.exports = async (req, res, next) => {
+  const token = req.header("auth-token");
+  if (!token) {
+    return res.status(401).json({ error: "Please Login first" });
+  }
+  try {
+    jwt.verify(token, Jwt_secret, (err, data) => {
+      if (err) {
+        return res.status(401).json({ error: "You must have logged in" });
+      }
+      const { _id } = data;
+      req.user=_id;
+      next()
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};

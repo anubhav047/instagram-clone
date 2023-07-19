@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const USER = require("../models/user");
 const bcrypt = require("bcrypt");
+const jwt=require("jsonwebtoken");
+const requirelogin = require("../middlewares/requirelogin");
+const {Jwt_secret}=require("../strings");
 
 router.post("/signup", async (req, res) => {
   let success = false;
@@ -32,7 +35,7 @@ router.post("/signup", async (req, res) => {
         return res.status(200).json({success,msg:"Account created successfully"});
     }
   } catch (error) {
-    console.error(error.msg)
+    console.error(error)
     res.status(500).json({ error: "Internal server error" });
   }
 });
@@ -56,13 +59,15 @@ router.post("/login", async (req, res) => {
       return res.status(422).json({success,error:"Invalid Password"})
     }
     success=true;
-    return res.status(200).json({success,msg:"Logged in successfully"})
+    const token= await jwt.sign({_id:user.id},Jwt_secret);
+    return res.status(200).json({success,msg:"Logged in successfully",token})
   }
   catch(error)
   {
-    console.error(error.msg)
+    console.error(error)
     return res.status(500).json({error:"Internal Server Error"})
   }
 });
+
 
 module.exports = router;

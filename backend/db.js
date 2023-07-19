@@ -1,11 +1,10 @@
 const mongoose =require('mongoose');
-// const URI = process.env.REACT_APP_MONGO_URI;
-const URI = "mongodb://localhost:27017/instagram-clone";
+const {Mongo_uri}=require("./strings");
 
 
 const connectToMongo = () => {
     try{
-        mongoose.connect(URI);
+        mongoose.connect(Mongo_uri);
         console.log("Connected to mongo successfully");
     }
     catch(error){

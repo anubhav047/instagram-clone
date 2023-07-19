@@ -30,6 +30,7 @@ const Login = () => {
     if(parsed.success)
     {
       notifysuccess(parsed.msg);
+      localStorage.setItem("token",parsed.token);
       navigate("/");
     }
     else
