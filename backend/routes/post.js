@@ -25,7 +25,7 @@ router.post("/createpost", requirelogin, async (req, res) => {
 
 router.get("/fetchposts",requirelogin,async (req,res)=>{
   try{
-    const posts= await POST.find({postedBy:req.user}).populate("postedBy","_id name");
+    const posts= await POST.find().populate("postedBy","_id name userName");
     res.status(200).json(posts);
   }
   catch(error)
@@ -33,6 +33,17 @@ router.get("/fetchposts",requirelogin,async (req,res)=>{
     res.status(500).json({error:"Internal Server Error"})
   }
 
+})
+
+router.get("/myposts",requirelogin,async(req,res)=>{
+  try{
+    const posts =await POST.find({postedBy:req.user})
+    res.status(200).json(posts);
+  }
+  catch(error)
+  {
+  res.status(500).json({error:"Internal Server Error"});
+  }
 })
 
 module.exports = router;

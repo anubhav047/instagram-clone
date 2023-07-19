@@ -29,7 +29,7 @@ export default function Navbar(props) {
         </Link>
         <Link to="/login" onClick={handleLogout}>
           {" "}
-          <li>Logout</li>
+          <li className="logout">Logout</li>
         </Link>
       </ul>
     </div>

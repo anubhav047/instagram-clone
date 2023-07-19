@@ -17,7 +17,7 @@ const Signup = () => {
 
   const handlesubmit= async (e)=>{
     e.preventDefault();
-    const url="http://192.168.29.163:2000/signup";
+    const url="http://localhost:2000/signup";
     const res=await fetch(url,{
       method:"post",
       headers:{

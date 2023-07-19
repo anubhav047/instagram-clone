@@ -10,7 +10,7 @@ const Createpost = () => {
   const notifyerror = (error) => toast.error(error);
 
   const [progress, setProgress] = useState(0)
-  const [image, setimage] = useState("");
+  const [imagefile, setimagefile] = useState("");
   const [body, setBody] = useState("");
 
   const loadfile = (event) => {
@@ -23,9 +23,9 @@ const Createpost = () => {
   const postdata = async () => {
     setProgress(10);
     try{
-      if(image){
+      if(imagefile){
         const data = new FormData();
-        data.append("file", image);
+        data.append("file", imagefile);
         data.append("upload_preset", "instagram-clone");
         data.append("cloud_name", "anubhavcloudinary");
         const res = await fetch(
@@ -51,7 +51,7 @@ const Createpost = () => {
   const postToMongo = async (url) => {
     try {
       setProgress(50);
-      const res = await fetch("http://192.168.29.163:2000/createpost", {
+      const res = await fetch("http://localhost:2000/createpost", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -99,7 +99,7 @@ const Createpost = () => {
             accept="image/*"
             onChange={(event) => {
               loadfile(event);
-              setimage(event.target.files[0]);
+              setimagefile(event.target.files[0]);
             }}
           />
           <img id="output" src={preview} alt="" />

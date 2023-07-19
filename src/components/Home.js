@@ -17,7 +17,7 @@ const Home = () => {
   }, [])
 
   const populatePosts = async()=>{
-    const res= await fetch("http://192.168.29.163:2000/fetchposts",{
+    const res= await fetch("http://localhost:2000/fetchposts",{
       method:"get",
       headers:{ 
         "Content-Type":"application/json",
@@ -34,7 +34,7 @@ const Home = () => {
       <div className="home">
         {posts.map((elements)=>{
           return(
-            <div className="card">
+            <div className="card" key={elements.image}>
             <div className="card-header">
               <div className="card-pic">
                 <img
@@ -53,7 +53,7 @@ const Home = () => {
             <div className="card-content">
               <span className="material-symbols-outlined">favorite</span>
               <p>1 Like</p>
-              <p><span style={{fontWeight:"bold"}}>{elements.postedBy.name}</span> : {elements.body}</p>
+              <p><span style={{fontWeight:"bold"}}>{elements.postedBy.userName}</span> : {elements.body}</p>
             </div>
             <div className="card-comment">
               <input type="text" placeholder="Type a comment" />
