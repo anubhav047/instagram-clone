@@ -120,4 +120,21 @@ router.put("/deletecomment", requirelogin, async (req, res) => {
     res.status(500).json({error});
   }
 });
+
+router.put("/deletepost/:postId",requirelogin,async (req,res)=>{
+  try{
+    const result = await POST.findById(req.params.postId)
+    if(result.postedBy.toString()==req.user){
+      const post = await POST.findByIdAndDelete(req.params.postId)
+      res.status(200).json({post,msg:"Post Deleted successfully"})
+    }
+    else{
+      res.status(401).json({error:"Unauthorized"})
+    }
+  }
+  catch(error)
+  {
+    res.status(500).json({error})
+  }
+});
 module.exports = router;

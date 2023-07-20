@@ -38,3 +38,12 @@
     transform: scale(1.1);
     transition: transform 0.5s ;
   }
+  .material-symbols-outlined-delete{
+    position: absolute;
+    font-size: 25px;
+    cursor: pointer;
+    top:0;
+    right: 0;
+    background-color: white;
+    border-radius: 100px;
+  }
