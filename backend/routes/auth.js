@@ -69,5 +69,14 @@ router.post("/login", async (req, res) => {
   }
 });
 
-
+router.get("/fetchdetails",requirelogin,async (req,res)=>{
+  try{
+    const user = await USER.findById(req.user).select("-password")
+    res.json({user});
+  }
+  catch(error)
+  {
+    res.send(error);
+  }
+})
 module.exports = router;

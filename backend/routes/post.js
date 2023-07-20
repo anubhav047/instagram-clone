@@ -25,7 +25,7 @@ router.post("/createpost", requirelogin, async (req, res) => {
 
 router.get("/fetchposts",requirelogin,async (req,res)=>{
   try{
-    const posts= await POST.find().populate("postedBy","_id name userName");
+    const posts= await POST.find().populate("postedBy","_id name userName").populate("comments.postedBy","_id userName");
     res.status(200).json(posts);
   }
   catch(error)
@@ -46,4 +46,52 @@ router.get("/myposts",requirelogin,async(req,res)=>{
   }
 })
 
+router.put("/like",requirelogin,async (req,res)=>{
+  try{
+    const newpost =await POST.findByIdAndUpdate(req.body.postId,{
+      $push:{likes:req.user}
+    },{
+      new:true
+    }).populate("comments.postedBy","_id userName").populate("postedBy","_id userName")
+    res.status(200).json({newpost,msg:"Liked Successfully"});
+  }
+  catch(error)
+  {
+    res.status(500).json({error:"Internal Server Error"})
+  }
+})
+router.put("/unlike",requirelogin,async (req,res)=>{
+  try{
+    const newpost =await POST.findByIdAndUpdate(req.body.postId,{
+      $pull:{likes:req.user}
+    },{
+      new:true
+    }).populate("comments.postedBy","_id userName").populate("postedBy","_id userName")
+    res.status(200).json({newpost,msg:"UnLiked Successfully"});
+  }
+  catch(error)
+  {
+    res.status(500).json({error:"Internal Server Error"})
+  }
+})
+
+router.put("/comment",requirelogin,async(req,res)=>{
+  try{
+    const comment = {
+    comment : req.body.comment,
+    postedBy : req.user
+  }
+  const newpost = await POST.findByIdAndUpdate(req.body.postId,{
+    $push:{comments:comment}
+  },{
+    new:true
+  }).populate("comments.postedBy","_id userName").populate("postedBy","_id userName")
+    res.status(200).json({newpost,msg:"Comment posted successfully"});
+  }
+  catch(error)
+  {
+    res.status(500).json(error);
+    console.log(error);
+  }
+})
 module.exports = router;
