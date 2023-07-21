@@ -8,6 +8,35 @@
     display: flex;
     text-align: left;
   }
+  .top{
+    display:flex;
+    text-align: left;
+    width: 300px;
+  }
+  .top button{
+    width: 70px;
+    height: 30px;
+    background-color: #A8A8A8;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    margin: auto;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  .top button:hover{
+    background-color: #363636;
+  }
+  .data h2{
+    padding: 5px;
+  }
+  .data h3{
+    padding: 5px;
+  }
+  .profile-data{
+    line-height: 17px;
+  }
   .profile-top h2{
     margin-top: 40px;
     margin-bottom: 0;
@@ -17,6 +46,7 @@
   }
   .profile-top p{
     font-size: 16px;
+    margin: 10px;
   }
   .profile-pic img{
     pointer-events: none;

@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./NavBar";
-import "./Profile.css";
+import "./styles/Profile.css";
 import Postdetails from "./Postdetails";
 
 const Profile = () => {
-  const [user, setuser] = useState({});
+  const [user, setuser] = useState({
+    followers:[],
+    following:[]
+  });
   const [myposts, setmyposts] = useState([]);
   const [popuppost, setpopuppost] = useState(null);
   const [show, setshow] = useState(false);
   useEffect(() => {
     getdetails();
     fetchmyposts();
+    window.scrollTo(0, 0)
   }, []);
   const fetchmyposts = async () => {
     const res = await fetch("http://localhost:2000/myposts", {
@@ -56,8 +60,8 @@ const Profile = () => {
             <h2>{user.userName}</h2>
             <h3>{user.name}</h3>
             <p>{myposts.length} Posts</p>
-            <p>100 Followers</p>
-            <p>100 Following</p>
+            <p>{user.followers.length} Followers</p>
+            <p>{user.following.length} Following</p>
           </div>
         </div>
         <hr style={{ opacity: "0.7", margin: "10px auto" }}></hr>

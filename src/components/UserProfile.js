@@ -1,25 +1,30 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./NavBar";
-import "./userprofile.css";
+import "./styles/userprofile.css";
 import UserPostdetails from "./UserPostdetails";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
   const navigate = useNavigate();
-const {userId} = useParams();
-  const [user, setuser] = useState({});
+  const {userId} = useParams();
+  const [user, setuser] = useState({
+    followers:0,
+    following:0
+  });
+  const [isfollow, setisfollow] = useState(false);
   const [posts, setposts] = useState([]);
   const [popuppost, setpopuppost] = useState(null);
   const [show, setshow] = useState(false);
-  useEffect(() => {
-    fetchuser();
-    console.log(JSON.parse(localStorage.getItem('myuser')));
-    if(userId==JSON.parse(localStorage.getItem('myuser'))._id)
+   useEffect(() => {
+    fetchuser()
+    if(userId===JSON.parse(localStorage.getItem('myuser'))._id)
     {
       navigate("/profile",{replace: true});
     }
-  }, []);
+    window.scrollTo(0, 0)
+    // eslint-disable-next-line
+  }, [isfollow]);
   const fetchuser = async () => {
     const res = await fetch(`http://localhost:2000/user/${userId}`, {
       method: "get"
@@ -27,6 +32,9 @@ const {userId} = useParams();
     const parsed = await res.json();
     setposts(parsed.posts);
     setuser(parsed.user);
+    if(parsed.user.followers.includes(JSON.parse(localStorage.getItem("myuser"))._id)){
+      setisfollow(true);
+    }
 }
   const toggle = async (element) => {
     if (show) {
@@ -37,6 +45,33 @@ const {userId} = useParams();
       setshow(true);
     }
   };
+
+  const follow = async()=>{
+    const res = await fetch("http://localhost:2000/follow",{
+      method:"put",
+      headers:{
+        "Content-Type":"application/json",
+        "auth-token":localStorage.getItem("token")
+      },
+      body:JSON.stringify({followId:userId})
+    })
+    if(res){
+      setisfollow(true)
+    }
+  }
+  const unfollow = async()=>{
+    const res = await fetch("http://localhost:2000/unfollow",{
+      method:"put",
+      headers:{
+        "Content-Type":"application/json",
+        "auth-token":localStorage.getItem("token")
+      },
+      body:JSON.stringify({followId:userId})
+    })
+    if(res){
+      setisfollow(false)
+    }
+  }
   return (
     <>
       <Navbar />
@@ -49,11 +84,24 @@ const {userId} = useParams();
             />
           </div>
           <div className="profile-data">
+            <div className="top">
+              <div className="data">
             <h2>{user.userName}</h2>
             <h3>{user.name}</h3>
+              </div>
+            <button onClick={()=>{
+              if(isfollow)
+              {
+                unfollow();
+              }
+              else{
+                follow();
+              }
+            }}>{isfollow?"Unfollow":"Follow"}</button>
+            </div>
             <p>{posts.length} Posts</p>
-            <p>100 Followers</p>
-            <p>100 Following</p>
+            <p>{user.followers.length} Followers</p>
+            <p>{user.following.length} Following</p>
           </div>
         </div>
         <hr style={{ opacity: "0.7", margin: "10px auto" }}></hr>
@@ -79,7 +127,6 @@ const {userId} = useParams();
           setpopupPost={setpopuppost}
           show={show}
           setshow={setshow}
-          user={user}
         />
       )}
     </>

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./postdetail.css";
+import "./styles/postdetail.css";
 
 const Postdetails = (props) => {
-  const { popupPost, setpopupPost, setshow, show, user } = props;
+  const { popupPost, setpopupPost, setshow, show} = props;
   const [comment, setcomment] = useState("");
   const deletecomment = async (postId, comm) => {
     const res = await fetch("http://localhost:2000/deletecomment", {
@@ -123,7 +123,7 @@ const Postdetails = (props) => {
             })}
           </div>
           <div className="card-content">
-            {!popupPost.likes.includes(user._id) ? (
+            {!popupPost.likes.includes(JSON.parse(localStorage.getItem('myuser'))._id) ? (
               <span
                 className="material-symbols-outlined"
                 onClick={() => {

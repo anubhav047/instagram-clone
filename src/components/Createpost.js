@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./NavBar";
 import preview from "../img/preview.png";
-import "./Createpost.css";
+import "./styles/Createpost.css";
 import { toast } from "react-toastify";
 import LoadingBar from 'react-top-loading-bar'
 
@@ -112,7 +112,7 @@ const Createpost = () => {
             />
           </div>
           <div style={{ width: "100%" }}>
-            <h4>anubhav_04</h4>
+            <h4>{JSON.parse(localStorage.getItem('myuser')).userName}</h4>
             <textarea
               placeholder="Enter a suitable caption..."
               value={body}
