@@ -1,6 +1,8 @@
-img{
+.navbar img{
     width: 10%;
     object-fit: contain;
+    pointer-events: none;
+    user-select: none;
 }
 
 .navbar{
@@ -21,7 +23,7 @@ li{
     padding: 1px 20px;
 }
 
-a{
+.navbar a{
     text-decoration: none;
     color: black;
     font-size: 18px;

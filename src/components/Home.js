@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./NavBar";
 import "./Home.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const [posts, setposts] = useState([]);
@@ -12,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      navigate("/login");
+      navigate("/login",{replace: true});
     }
     setposts([]);
     getdetails();
@@ -29,6 +29,7 @@ const Home = () => {
     });
     const parsed = await res.json();
     setuser(parsed.user);
+    localStorage.setItem("myuser",JSON.stringify(parsed.user));
   };
 
   const populatePosts = async () => {
@@ -102,7 +103,7 @@ const Home = () => {
   };
   const deletecomment = async (postId,comm) => {
     const res = await fetch("http://localhost:2000/deletecomment",{
-      method:"put",
+      method:"delete",
       headers:{
         "Content-Type":"application/json",
         "auth-token":localStorage.getItem('token')
@@ -130,7 +131,9 @@ const Home = () => {
                     alt=""
                   />
                 </div>
+                <Link to={`/user/${element.postedBy._id}`}>
                 <h3>{element.postedBy.name}</h3>
+                </Link>
               </div>
               <div className="card-image">
                 <img src={element.image} alt="" />
@@ -228,7 +231,7 @@ const Home = () => {
                 <div className="sc-comments">
                   {popupPost.comments.map((comm) => {
                     return (
-                      <p>
+                      <p key={comm._id}>
                         <span style={{ fontWeight: "bold" }}>
                           {comm.postedBy.userName}
                         </span>{" "}
@@ -239,7 +242,7 @@ const Home = () => {
                             onClick={() => {
                               deletecomment(popupPost._id,comm);
                             }}
-                            className="material-symbols-outlined material-symbols-outlined-delete"
+                            className="material-symbols-outlined material-symbols-outlined-delete1"
                           >
                             delete
                           </span>

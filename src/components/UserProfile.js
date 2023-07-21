@@ -1,37 +1,33 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./NavBar";
-import "./Profile.css";
-import Postdetails from "./Postdetails";
+import "./userprofile.css";
+import UserPostdetails from "./UserPostdetails";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Profile = () => {
+const UserProfile = () => {
+  const navigate = useNavigate();
+const {userId} = useParams();
   const [user, setuser] = useState({});
-  const [myposts, setmyposts] = useState([]);
+  const [posts, setposts] = useState([]);
   const [popuppost, setpopuppost] = useState(null);
   const [show, setshow] = useState(false);
   useEffect(() => {
-    getdetails();
-    fetchmyposts();
+    fetchuser();
+    console.log(JSON.parse(localStorage.getItem('myuser')));
+    if(userId==JSON.parse(localStorage.getItem('myuser'))._id)
+    {
+      navigate("/profile",{replace: true});
+    }
   }, []);
-  const fetchmyposts = async () => {
-    const res = await fetch("http://localhost:2000/myposts", {
-      method: "get",
-      headers: {
-        "auth-token": localStorage.getItem("token"),
-      },
+  const fetchuser = async () => {
+    const res = await fetch(`http://localhost:2000/user/${userId}`, {
+      method: "get"
     });
     const parsed = await res.json();
-    setmyposts(parsed);
-  };
-  const getdetails = async () => {
-    const res = await fetch("http://localhost:2000/fetchdetails", {
-      method: "get",
-      headers: {
-        "auth-token": localStorage.getItem("token"),
-      },
-    });
-    const parsed = await res.json();
+    setposts(parsed.posts);
     setuser(parsed.user);
-  };
+}
   const toggle = async (element) => {
     if (show) {
       setshow(false);
@@ -55,14 +51,14 @@ const Profile = () => {
           <div className="profile-data">
             <h2>{user.userName}</h2>
             <h3>{user.name}</h3>
-            <p>{myposts.length} Posts</p>
+            <p>{posts.length} Posts</p>
             <p>100 Followers</p>
             <p>100 Following</p>
           </div>
         </div>
         <hr style={{ opacity: "0.7", margin: "10px auto" }}></hr>
         <div className="gallery">
-          {myposts.map((element) => {
+          {posts.map((element) => {
             return (
               <div
                 onClick={() => {
@@ -78,12 +74,11 @@ const Profile = () => {
         </div>
       </div>
       {show && (
-        <Postdetails
+        <UserPostdetails
           popupPost={popuppost}
           setpopupPost={setpopuppost}
           show={show}
           setshow={setshow}
-          fetchmyposts={fetchmyposts}
           user={user}
         />
       )}
@@ -91,4 +86,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default UserProfile;

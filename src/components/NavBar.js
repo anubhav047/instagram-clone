@@ -8,7 +8,7 @@ export default function Navbar(props) {
   const notifysuccess = (msg) => toast.success(msg);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.clear();
     notifysuccess("Logged out successfully");
   };
   return (

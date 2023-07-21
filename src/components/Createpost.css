@@ -34,6 +34,8 @@
 .post-input img{
     width: 450px;
     margin: auto;
+    pointer-events: none;
+    user-select: none;
     margin-bottom: 20px;
     object-fit: contain;
 }
@@ -49,6 +51,8 @@
     height: 50%;
 }
 .prof-pic img{
+    pointer-events: none;
+    user-select: none;
     width:130px;
     border-radius: 100px;
     margin:10px;

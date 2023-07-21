@@ -11,6 +11,7 @@ connectToMongo();
 
 app.use(require("./routes/auth"));
 app.use(require("./routes/post"));
+app.use(require("./routes/user"));
 
 app.listen(PORT,()=>{
     console.log(`Backend listening on port ${PORT}`)
