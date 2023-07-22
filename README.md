@@ -3,6 +3,17 @@
 <hr><ul>
 <li>MERN Stack Project</li>
 </ul><h2>Technologies Used</h2>
+
+### Requirements
+- Requires a `mongodb` database to store all the data.
+- It also requires some environment variables to be declared in the `.env` file such as MONGO_URI and JWT_SECRET
+
+### Installation
+The installation can be done either using `npm install`
+
+```console
+npm install
+```
 <hr><ul>
 <li>HTML</li>
 </ul><ul>
@@ -26,3 +37,6 @@
 <li>Responsive Design</li>
 </ul><h2>Contact</h2>
 <hr><p><span style="margin-right: 30px;"></span><a href="https://www.linkedin.com/in/anubhav-goel-a6908a214/"><img style="width: 10%;" target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"></a><span style="margin-right: 30px;"></span><a href="https://github.com/anubhav047"><img style="width: 10%;" target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"></a></p>
+
+
+
