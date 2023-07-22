@@ -28,6 +28,9 @@ li{
     color: black;
     font-size: 18px;
 }
+.search span{
+    font-size: 25px;
+}
 .logout{
     background-color: rgba(255, 0, 0, 0.726);
     color: white;

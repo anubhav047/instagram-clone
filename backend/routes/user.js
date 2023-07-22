@@ -4,6 +4,17 @@ const requirelogin = require('../middlewares/requirelogin');
 const USER = require("../models/user");
 const POST = require("../models/post")
 
+router.get("/fetchallusers",requirelogin,async(req,res)=>{
+  try{
+    const users = await USER.find().select("-password");
+    res.status(200).json({users})
+  }
+  catch(error)
+  {
+    res.status(500).json({error});
+  }
+
+})
 router.get("/fetchdetails", requirelogin, async (req, res) => {
   try {
     const user = await USER.findById(req.user).select("-password");

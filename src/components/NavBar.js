@@ -31,6 +31,12 @@ export default function Navbar(props) {
           {" "}
           <li className="logout">Logout</li>
         </Link>
+        <Link to="/search">
+          {" "}
+          <li className="search">
+            <span className="material-symbols-outlined">search</span>
+          </li>
+        </Link>
       </ul>
     </div>
   );

@@ -1,0 +1,31 @@
+.search-container{
+    min-height: 100vh;
+}
+.search-box{
+    margin:20px auto;
+}
+.search-box input{
+    height: 25px;
+}
+.search-box button{
+    margin: 0px 5px;
+    padding: 5px;
+    background-color: #1773ea;
+    color: white;
+    width: 80px;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 10px;
+    border: none;
+}
+
+.search-content p{
+    margin: 20px auto;
+    min-width: 200px;
+    max-width: fit-content;
+    font-size: 20px;
+}
+.search-content a{
+    text-decoration: none;
+    color: black;
+}
