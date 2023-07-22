@@ -18,7 +18,7 @@
 </ul><ul>
 <li>MongoDB</li>
 </ul><h2>Screenshots</h2>
-<hr><p><img src="https://res.cloudinary.com/anubhavcloudinary/image/upload/v1690042033/Screenshot_2023-07-22_at_9.36.13_PM_vp8orc.png" alt=""></p><p><img src="https://res.cloudinary.com/anubhavcloudinary/image/upload/v1690042083/Screenshot_2023-07-22_at_9.37.52_PM_s6hwsj.png" alt=""></p><h2>Setup</h2>
+<hr><p><img src="https://res.cloudinary.com/anubhavcloudinary/image/upload/v1690042083/Screenshot_2023-07-22_at_9.37.52_PM_s6hwsj.png" alt=""></p><h2>Setup</h2>
 <hr><p>Run npm install command to install the dependencies used in the project such as bcrypt,jsonwebtoken,react-toaster,etc</p><h2>Features that can be added</h2>
 <hr><ul>
 <li>Delete profile feature</li>
