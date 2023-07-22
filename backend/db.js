@@ -1,7 +1,6 @@
 const mongoose =require('mongoose');
 const {Mongo_uri}=require("./strings");
 
-
 const connectToMongo = () => {
     try{
         mongoose.connect(Mongo_uri);
