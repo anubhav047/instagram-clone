@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/login" element={<Login/>}></Route>
         <Route exact path="/signup" element={<SignUp/>}></Route>
         <Route exact path="/profile" element={<Profile/>}></Route>
-        <Route exact path="/user/:userId" element={<UserProfile/>}></Route>
+        <Route path="/user/:userId" element={<UserProfile/>}></Route>
         <Route exact path="/createPost" element={<Createpost/>}></Route>
         <Route exact path="/search" element={<Search/>}></Route>
       </Routes>
