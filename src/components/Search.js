@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./NavBar";
-import "./styles/search.css";
+import "../styles/search.css";
 import { Link } from "react-router-dom";
 
 const Search = () => {

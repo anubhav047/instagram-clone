@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./styles/profilepic.css";
+import "../styles/profilepic.css";
 
 const ProfilePic = ({ toggleprof, setuser }) => {
   const hiddenFileInput = useRef();

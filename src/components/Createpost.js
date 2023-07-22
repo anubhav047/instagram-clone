@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./NavBar";
 import preview from "../img/preview.png";
-import "./styles/Createpost.css";
+import "../styles/Createpost.css";
 import { toast } from "react-toastify";
 import LoadingBar from 'react-top-loading-bar'
 

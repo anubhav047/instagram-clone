@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./NavBar";
-import "./styles/Profile.css";
+import "../styles/Profile.css";
 import Postdetails from "./Postdetails";
 import ProfilePic from "./ProfilePic";
 

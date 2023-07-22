@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./NavBar";
-import "./styles/Home.css";
+import "../styles/Home.css";
 import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
@@ -41,6 +41,7 @@ const Home = () => {
       },
     });
     const parsed = await res.json();
+    console.log(parsed)
     setposts(parsed);
   };
 

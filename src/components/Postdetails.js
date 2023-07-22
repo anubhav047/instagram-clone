@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles/postdetail.css";
+import "../styles/postdetail.css";
 
 const Postdetails = (props) => {
   const { popupPost, setpopupPost, setshow, show, fetchmyposts, user } = props;

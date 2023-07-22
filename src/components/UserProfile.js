@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./NavBar";
-import "./styles/userprofile.css";
+import "../styles/userprofile.css";
 import UserPostdetails from "./UserPostdetails";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
