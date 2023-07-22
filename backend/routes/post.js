@@ -31,8 +31,8 @@ router.get("/fetchposts", requirelogin, async (req, res) => {
     //only fetching posts of accounts that are followed by user
     const user = await USER.findById(req.user)
     const posts = await POST.find({ postedBy: { $in: user.following } })
-      .populate("postedBy", "_id name userName")
-      .populate("comments.postedBy", "_id userName");
+      .populate("postedBy", "_id name userName image")
+      .populate("comments.postedBy", "_id userName").sort("-createdAt")
     res.status(200).json(posts);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
@@ -43,7 +43,7 @@ router.get("/myposts", requirelogin, async (req, res) => {
   try {
     const posts = await POST.find({ postedBy: req.user })
       .populate("comments.postedBy", "_id userName")
-      .populate("postedBy", "_id userName");
+      .populate("postedBy", "_id userName").sort("-createdAt");
     res.status(200).json(posts);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
@@ -62,7 +62,7 @@ router.put("/like", requirelogin, async (req, res) => {
       }
     )
       .populate("comments.postedBy", "_id userName")
-      .populate("postedBy", "_id userName");
+      .populate("postedBy", "_id userName image");
     res.status(200).json({ newpost, msg: "Liked Successfully" });
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
@@ -80,7 +80,7 @@ router.put("/unlike", requirelogin, async (req, res) => {
       }
     )
       .populate("comments.postedBy", "_id userName")
-      .populate("postedBy", "_id userName");
+      .populate("postedBy", "_id userName image");
     res.status(200).json({ newpost, msg: "UnLiked Successfully" });
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
@@ -103,7 +103,7 @@ router.put("/comment", requirelogin, async (req, res) => {
       }
     )
       .populate("comments.postedBy", "_id userName")
-      .populate("postedBy", "_id userName");
+      .populate("postedBy", "_id userName image");
     res.status(200).json({ newpost, msg: "Comment posted successfully" });
   } catch (error) {
     res.status(500).json({ error });
@@ -121,7 +121,7 @@ router.delete("/deletecomment", requirelogin, async (req, res) => {
         new: true,
       }
     )
-      .populate("postedBy", "_id userName")
+      .populate("postedBy", "_id userName image")
       .populate("comments.postedBy", "_id userName");
     res.status(200).json({ newpost, msg: "Deleted comment successfully" });
   } catch (error) {

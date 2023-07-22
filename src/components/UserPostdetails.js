@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./styles/postdetail.css";
 
 const Postdetails = (props) => {
-  const { popupPost, setpopupPost, setshow, show} = props;
+  const { popupPost, setpopupPost, setshow, show,user} = props;
   const [comment, setcomment] = useState("");
   const deletecomment = async (postId, comm) => {
     const res = await fetch("http://localhost:2000/deletecomment", {
@@ -86,7 +86,7 @@ const Postdetails = (props) => {
           <div className="card-header">
             <div className="card-pic">
               <img
-                src="https://images.pexels.com/photos/15422042/pexels-photo-15422042/free-photo-of-black-and-white-fashion-man-people.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src={user.image}
                 alt=""
               />
             </div>

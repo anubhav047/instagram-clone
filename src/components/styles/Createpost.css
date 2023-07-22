@@ -54,6 +54,8 @@
     pointer-events: none;
     user-select: none;
     width:130px;
+    height: 130px;
+    object-fit: cover;
     border-radius: 100px;
     margin:10px;
     padding :0px;

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Search = () => {
   useEffect(() => {
     fetchusers();
+    // eslint-disable-next-line
   }, []);
 
   const [users, setusers] = useState([]);
@@ -37,11 +38,12 @@ const Search = () => {
          <div className="search-content">
           {users.filter((user) => {
             if (query === "") {
-              return;
+              return false;
             } else if (user.name.toLowerCase().includes(query.toLowerCase())||user.userName.toLowerCase().includes(query.toLowerCase())) {
               return user;
             }
-          }).map((user, index) => (
+            return false;
+          }).map((user) => (
             <Link to={`/user/${user._id}`}>
             <p>{user.name} "{user.userName}"</p>
             </Link>

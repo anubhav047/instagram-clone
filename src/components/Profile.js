@@ -2,19 +2,21 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./NavBar";
 import "./styles/Profile.css";
 import Postdetails from "./Postdetails";
+import ProfilePic from "./ProfilePic";
 
 const Profile = () => {
   const [user, setuser] = useState({
-    followers:[],
-    following:[]
+    followers: [],
+    following: [],
   });
   const [myposts, setmyposts] = useState([]);
   const [popuppost, setpopuppost] = useState(null);
   const [show, setshow] = useState(false);
+  const [prof, setprof] = useState(false);
   useEffect(() => {
     getdetails();
     fetchmyposts();
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }, []);
   const fetchmyposts = async () => {
     const res = await fetch("http://localhost:2000/myposts", {
@@ -45,14 +47,21 @@ const Profile = () => {
       setshow(true);
     }
   };
+  const toggleprof = () => {
+    if (prof) {
+      setprof(false);
+    } else {
+      setprof(true);
+    }
+  };
   return (
     <>
       <Navbar />
       <div className="profile">
         <div className="profile-top">
-          <div className="profile-pic">
-            <img
-              src="https://images.pexels.com/photos/15422042/pexels-photo-15422042/free-photo-of-black-and-white-fashion-man-people.jpeg?auto=compress&cs=tinysrgb&w=800"
+          <div className="profile-picc" >
+            <img onClick={toggleprof}
+              src={user.image}
               alt=""
             />
           </div>
@@ -91,6 +100,7 @@ const Profile = () => {
           user={user}
         />
       )}
+      {prof && <ProfilePic toggleprof={toggleprof} setuser={setuser}/>}
     </>
   );
 };

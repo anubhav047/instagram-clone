@@ -4,7 +4,6 @@
     min-height: 100vh;
   }
   .profile-top{
-    /* border:1px solid rgb(176,176,176); */
     display: flex;
     text-align: left;
   }
@@ -18,10 +17,12 @@
   .profile-top p{
     font-size: 16px;
   }
-  .profile-pic img{
-    pointer-events: none;
-    user-select: none;
+  .profile-picc img{
+    cursor: pointer;
+    /* user-select: none; */
     width: 200px;
+    height: 200px;
+    object-fit: cover;
     border-radius: 100px;
     margin: 10px;
     padding:10px ;
@@ -32,6 +33,7 @@
     flex-wrap: wrap;
   }
   .gallery img{
+    cursor: pointer;
     /* pointer-events:none; */
     user-select: none;
     width:205px;

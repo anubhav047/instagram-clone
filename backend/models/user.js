@@ -23,15 +23,19 @@ const userSchema = new mongoose.Schema({
       type: ObjectId,
       ref: "USER",
       default:{}
-    },
+    }
   ],
   following: [
     {
       type: ObjectId,
       ref: "USER",
       default:{}
-    },
+    }
   ],
+  image:{
+    type:String,
+    default:"https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg"
+  }
 });
 
 module.exports = mongoose.model("USER", userSchema);

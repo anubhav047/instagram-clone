@@ -49,7 +49,6 @@
     margin: 10px;
   }
   .profile-pic img{
-    pointer-events: none;
     user-select: none;
     width: 200px;
     border-radius: 100px;
@@ -62,7 +61,6 @@
     flex-wrap: wrap;
   }
   .gallery img{
-    /* pointer-events:none; */
     user-select: none;
     width:205px;
     height: 205px;

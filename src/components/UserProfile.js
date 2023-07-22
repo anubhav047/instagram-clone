@@ -79,7 +79,7 @@ const UserProfile = () => {
         <div className="profile-top">
           <div className="profile-pic">
             <img
-              src="https://images.pexels.com/photos/15422042/pexels-photo-15422042/free-photo-of-black-and-white-fashion-man-people.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src={user.image}
               alt=""
             />
           </div>
@@ -126,6 +126,7 @@ const UserProfile = () => {
           popupPost={popuppost}
           setpopupPost={setpopuppost}
           show={show}
+          user={user}
           setshow={setshow}
         />
       )}

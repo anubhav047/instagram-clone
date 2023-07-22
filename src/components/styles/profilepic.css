@@ -1,0 +1,36 @@
+.profilepic{
+    position: fixed;
+    top:0;
+    left: 0;
+    background-color: rgb(20,20,20,0.5);
+    height: 100vh;
+    width: 100vw;
+}
+
+.prof-container{
+    border-radius: 20px;
+    background-color: white;
+    position: absolute;
+    width: 30%;
+    left: 35%;
+    top:30%;
+    /* height: 22%; */
+    display: flex;
+    flex-direction: column;
+}
+.prof-container div{
+    margin: 10px auto;
+}
+.btn{
+    background: none;
+    border: none;
+    font-size: medium;
+    cursor: pointer;
+    font-weight: bold;
+}
+.upload-photo .btn{
+    color: #2563a6;
+}
+.remove-photo .btn{
+    color: #9D3A42;
+}

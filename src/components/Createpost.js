@@ -107,7 +107,7 @@ const Createpost = () => {
         <div className="details">
           <div className="prof-pic">
             <img
-              src="https://images.pexels.com/photos/15422042/pexels-photo-15422042/free-photo-of-black-and-white-fashion-man-people.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src={JSON.parse(localStorage.getItem('myuser')).image}
               alt=""
             />
           </div>
