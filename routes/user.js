@@ -21,7 +21,7 @@ router.get("/fetchdetails", requirelogin, async (req, res) => {
   }
 });
 
-router.get("/user/:userId", async (req, res) => {
+router.get("/getuser/:userId", async (req, res) => {
   try {
     const user = await USER.findById(req.params.userId).select("-password");
     if (!user) {

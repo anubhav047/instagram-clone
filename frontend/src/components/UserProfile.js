@@ -26,7 +26,7 @@ const UserProfile = () => {
     // eslint-disable-next-line
   }, [isfollow]);
   const fetchuser = async () => {
-    const res = await fetch(`/user/${userId}`, {
+    const res = await fetch(`/getuser/${userId}`, {
       method: "get"
     });
     const parsed = await res.json();
