@@ -60,7 +60,7 @@ li{
     .navbar{
         width: 100vw;
         height: 60px;
-        justify-content:left;
+        justify-content:center;
         align-items: center;
     }
     .nav-menu{
