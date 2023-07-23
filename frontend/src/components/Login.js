@@ -16,7 +16,7 @@ const Login = () => {
 
   const handlesubmit = async (e) => {
     e.preventDefault();
-    const url ="http://localhost:2000/login";
+    const url ="/login";
     const res = await fetch(url,{
       method:"post",
       headers:{

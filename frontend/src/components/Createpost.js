@@ -51,7 +51,7 @@ const Createpost = () => {
   const postToMongo = async (url) => {
     try {
       setProgress(50);
-      const res = await fetch("http://localhost:2000/createpost", {
+      const res = await fetch("/createpost", {
         method: "post",
         headers: {
           "Content-Type": "application/json",

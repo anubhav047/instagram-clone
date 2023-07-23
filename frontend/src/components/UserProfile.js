@@ -26,7 +26,7 @@ const UserProfile = () => {
     // eslint-disable-next-line
   }, [isfollow]);
   const fetchuser = async () => {
-    const res = await fetch(`http://localhost:2000/getuser/${userId}`, {
+    const res = await fetch(`/getuser/${userId}`, {
       method: "get"
     });
     const parsed = await res.json();
@@ -47,7 +47,7 @@ const UserProfile = () => {
   };
 
   const follow = async()=>{
-    const res = await fetch("http://localhost:2000/follow",{
+    const res = await fetch("/follow",{
       method:"put",
       headers:{
         "Content-Type":"application/json",
@@ -60,7 +60,7 @@ const UserProfile = () => {
     }
   }
   const unfollow = async()=>{
-    const res = await fetch("http://localhost:2000/unfollow",{
+    const res = await fetch("/unfollow",{
       method:"put",
       headers:{
         "Content-Type":"application/json",
