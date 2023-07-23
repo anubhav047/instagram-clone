@@ -71,3 +71,118 @@
     transform: scale(1.1);
     transition: transform 0.5s ;
   }
+
+  @media screen and (max-width: 750px) {
+    .profile-top{
+      margin: auto;
+      width: 80%;
+      text-align: center;
+       justify-content: center;
+     }
+     .data h2{
+      padding: 2px;
+    }
+    .data h3{
+      padding: 2px;
+    }
+     .profile-data{
+      text-align: left;
+     }
+     .data{
+      text-align: left;
+     }
+     .top{
+      text-align: left;
+      align-items: center;
+      width: 160px;
+      display: flex;
+    }
+     .top button{
+      margin: 0 10px;
+    }
+     .profile-pic img{
+       width: 120px;
+       height: 120px;
+       padding: 0px;
+     }
+     .profile-top .profile-data p{
+       font-size: 12px;
+       margin: 5px 0px;
+     }
+     .profile-top .profile-data h2{
+       font-size: 12px;
+       margin: 5px 0px;
+     }
+     .profile-top .profile-data h3{
+       font-size: 12px;
+       margin: 5px 0px;
+     }
+     .profile-top .profile-data {
+       padding: 10px;
+       width: fit-content;
+     }
+     .gallery{
+       justify-content: center;
+     }
+     .profile hr{
+       width: 80%;
+     }
+ 
+ }
+ @media screen and (max-width: 414px) {
+   .profile-top{
+    margin: auto;
+    width: 80%;
+    text-align: center;
+     justify-content: center;
+   }
+   .data h2{
+    padding: 2px;
+  }
+  .data h3{
+    padding: 2px;
+  }
+   .profile-data{
+    text-align: left;
+   }
+   .data{
+    text-align: left;
+   }
+   .top{
+    text-align: left;
+    align-items: center;
+    width: 160px;
+    display: flex;
+  }
+   .top button{
+    margin: 0 10px;
+  }
+   .profile-pic img{
+     width: 120px;
+     height: 120px;
+     padding: 0px;
+   }
+   .profile-top .profile-data p{
+     font-size: 12px;
+     margin: 5px 0px;
+   }
+   .profile-top .profile-data h2{
+     font-size: 12px;
+     margin: 5px 0px;
+   }
+   .profile-top .profile-data h3{
+     font-size: 12px;
+     margin: 5px 0px;
+   }
+   .profile-top .profile-data {
+     padding: 10px;
+     width: fit-content;
+   }
+   .gallery{
+     justify-content: center;
+   }
+   .profile hr{
+     width: 80%;
+   }
+ 
+ }

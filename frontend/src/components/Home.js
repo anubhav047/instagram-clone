@@ -21,7 +21,7 @@ const Home = () => {
   }, []);
 
   const getdetails = async () => {
-    const res = await fetch("/fetchdetails", {
+    const res = await fetch("http://localhost:2000/fetchdetails", {
       method: "get",
       headers: {
         "auth-token": localStorage.getItem("token"),
@@ -33,7 +33,7 @@ const Home = () => {
   };
 
   const populatePosts = async () => {
-    const res = await fetch("/fetchposts", {
+    const res = await fetch("http://localhost:2000/fetchposts", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ const Home = () => {
   };
 
   const likepost = async (postId) => {
-    const res = await fetch("/like", {
+    const res = await fetch("http://localhost:2000/like", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -61,7 +61,7 @@ const Home = () => {
     if (popupPost) setpopupPost(parsed.newpost);
   };
   const unlikepost = async (postId) => {
-    const res = await fetch("/unlike", {
+    const res = await fetch("http://localhost:2000/unlike", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const Home = () => {
   };
 
   const handlecomment = async (postId) => {
-    const res = await fetch("/comment", {
+    const res = await fetch("http://localhost:2000/comment", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -103,7 +103,7 @@ const Home = () => {
     }
   };
   const deletecomment = async (postId,comm) => {
-    const res = await fetch("/deletecomment",{
+    const res = await fetch("http://localhost:2000/deletecomment",{
       method:"delete",
       headers:{
         "Content-Type":"application/json",

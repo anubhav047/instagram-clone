@@ -33,6 +33,7 @@
 
 .post-input img{
     width: 450px;
+    height: 450px;
     margin: auto;
     pointer-events: none;
     user-select: none;
@@ -63,4 +64,33 @@
 .details h4{
     text-align: left;
     margin-bottom: 10px;
+}
+
+@media screen and (max-width: 750px) {
+    .post{
+        max-width: 70%;
+    }
+    .post-input img{
+        width: 90%;
+        height: 500px;
+        object-fit: cover;
+    }
+    .details textarea{
+        width: 180px;
+        height: 50%;
+    }
+}
+@media screen and (max-width: 414px) {
+    .post{
+        max-width: 90%;
+    }
+    .post-input img{
+        width: 90%;
+        height: 300px;
+        object-fit: contain;
+    }
+    .details textarea{
+        width: 180px;
+        height: 50%;
+    }
 }

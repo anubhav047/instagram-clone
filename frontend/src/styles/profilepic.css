@@ -34,3 +34,24 @@
 .remove-photo .btn{
     color: #9D3A42;
 }
+
+@media screen and (max-width: 750px){
+    .prof-container{
+        width: 50%;
+        left: 25%;
+    }
+    .btn{
+        font-size: 14px;
+    }
+    
+}
+@media screen and (max-width: 400px){
+    .prof-container{
+        width: 70%;
+        left: 15%;
+    }
+    .btn{
+        font-size: 14px;
+    }
+
+}

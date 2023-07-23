@@ -5,7 +5,7 @@ const Postdetails = (props) => {
   const { popupPost, setpopupPost, setshow, show, fetchmyposts, user } = props;
   const [comment, setcomment] = useState("");
   const deletecomment = async (postId, comm) => {
-    const res = await fetch("/deletecomment", {
+    const res = await fetch("http://localhost:2000/deletecomment", {
       method: "delete",
       headers: {
         "Content-Type": "application/json",
@@ -17,7 +17,7 @@ const Postdetails = (props) => {
     setpopupPost(parsed.newpost);
   };
   const deletepost = async (postId) => {
-    const res = await fetch(`/deletepost/${postId}`, {
+    const res = await fetch(`http://localhost:2000/deletepost/${postId}`, {
       method: "delete",
       headers: {
         "auth-token": localStorage.getItem("token"),
@@ -29,7 +29,7 @@ const Postdetails = (props) => {
     if (parsed) fetchmyposts();
   };
   const likepost = async (postId) => {
-    const res = await fetch("/like", {
+    const res = await fetch("http://localhost:2000/like", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const Postdetails = (props) => {
     if (popupPost) setpopupPost(parsed.newpost);
   };
   const unlikepost = async (postId) => {
-    const res = await fetch("/unlike", {
+    const res = await fetch("http://localhost:2000/unlike", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -56,7 +56,7 @@ const Postdetails = (props) => {
   };
 
   const handlecomment = async (postId) => {
-    const res = await fetch("/comment", {
+    const res = await fetch("http://localhost:2000/comment", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -122,6 +122,14 @@ const Postdetails = (props) => {
             </span>
           </div>
           <div className="sc-comments">
+          <span
+            className="material-symbols-outlined material-symbols-outlined-delete3"
+            onClick={() => {
+              deletepost(popupPost._id);
+            }}
+          >
+            delete
+          </span>
             {popupPost.comments.map((comm) => {
               return (
                 <p key={comm._id}>

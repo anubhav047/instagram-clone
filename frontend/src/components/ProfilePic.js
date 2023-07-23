@@ -35,7 +35,7 @@ const ProfilePic = ({ toggleprof, setuser }) => {
   };
   const postToMongo = async (url) => {
     try {
-      const res = await fetch("/postprofpic", {
+      const res = await fetch("http://localhost:2000/postprofpic", {
         method: "put",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const ProfilePic = ({ toggleprof, setuser }) => {
   };
   const removeprofilepic = async () => {
     try {
-      const res = await fetch("/removeprofpic", {
+      const res = await fetch("http://localhost:2000/removeprofpic", {
         method: "put",
         headers: {
           "Content-Type": "application/json",

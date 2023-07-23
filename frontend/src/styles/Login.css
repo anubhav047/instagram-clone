@@ -69,7 +69,7 @@
         height: 70%;
     }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 414px) {
     .login-logo{
         width: 80%;
         object-fit: contain;

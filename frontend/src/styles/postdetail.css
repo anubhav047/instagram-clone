@@ -1,4 +1,4 @@
-.comment-section p{
+.container .comment-section p{
     margin: 4px 10px;
     font-size: 14px;
     text-align: left;
@@ -93,3 +93,74 @@
     background-color: red;
     border-radius: 100px;
   }
+  .material-symbols-outlined-delete3{
+    display: none;
+    position:absolute;
+    font-size: 30px;
+    cursor: pointer;
+    margin: 2px;
+    padding: 2px;
+    color: white;
+    top:0;
+    right: 40px;
+    background-color: red;
+    border-radius: 100px;
+  }
+  @media screen and (max-width: 750px) {
+    .container{
+        width: 80%;
+        height: 70%;
+        top:20%;
+        left: 10%;
+        font-size: 13px;
+    }
+    .material-symbols-outlined-delete3{
+        display: block;
+    }
+    .container .card-content p{
+        font-size: 10px;
+    }
+    .container .sc-content{
+        width: 100%;
+    }
+    .show-comment .container .sc-image{
+        display: none;
+    }
+    .container .card-comment input{
+        font-size: 10px;
+    }
+    .container .card-comment button{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 414px) {
+    .container{
+        width: 80%;
+        height: 60%;
+        top:10%;
+        left: 10%;
+        font-size: 13px;
+    }
+    .show-comment .container .sc-image{
+        display: none;
+    }
+    .container .sc-content{
+        width: 100%;
+    }
+    .container .sc-comments p{
+        margin: 8px 8px;
+        justify-content:baseline;
+    }
+    .container .card-content p{
+        font-size: 10px;
+    }
+    .container .card-comment input{
+        font-size: 10px;
+    }
+    .container .card-comment button{
+        font-size: 10px;
+    }
+    .material-symbols-outlined-delete3{
+        display: block;
+    }
+}

@@ -12,7 +12,7 @@ const Search = () => {
   const [users, setusers] = useState([]);
   const [query, setquery] = useState("");
   const fetchusers = async () => {
-    const res = await fetch("/fetchallusers", {
+    const res = await fetch("http://localhost:2000/fetchallusers", {
       headers: {
         "auth-token": localStorage.getItem("token"),
       },

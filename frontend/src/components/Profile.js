@@ -19,7 +19,7 @@ const Profile = () => {
     window.scrollTo(0, 0);
   }, []);
   const fetchmyposts = async () => {
-    const res = await fetch("/myposts", {
+    const res = await fetch("http://localhost:2000/myposts", {
       method: "get",
       headers: {
         "auth-token": localStorage.getItem("token"),
@@ -29,7 +29,7 @@ const Profile = () => {
     setmyposts(parsed);
   };
   const getdetails = async () => {
-    const res = await fetch("/fetchdetails", {
+    const res = await fetch("http://localhost:2000/fetchdetails", {
       method: "get",
       headers: {
         "auth-token": localStorage.getItem("token"),
