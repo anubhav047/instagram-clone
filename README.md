@@ -34,7 +34,7 @@ npm install
 <hr><ul>
 <li>Delete profile feature</li>
 </ul><ul>
-<li>Responsive Design</li>
+<li>Forgot Password</li>
 </ul><h2>Contact</h2>
 <hr><p><span style="margin-right: 30px;"></span><a href="https://www.linkedin.com/in/anubhav-goel-a6908a214/"><img style="width: 10%;" target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"></a><span style="margin-right: 30px;"></span><a href="https://github.com/anubhav047"><img style="width: 10%;" target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"></a></p>
 
