@@ -23,6 +23,7 @@ const Search = () => {
   return (
     <>
       <Navbar />
+      <h4>Follow accounts of your friends from the search bar to see their posts on the home page</h4>
       <div className="search-container">
         <div className="search-box">
           <input

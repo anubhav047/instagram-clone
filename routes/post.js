@@ -28,8 +28,16 @@ router.post("/createpost", requirelogin, async (req, res) => {
 
 router.get("/fetchposts", requirelogin, async (req, res) => {
   try {
-    //only fetching posts of accounts that are followed by user
+    //only all posts if user is not following anybody
     const user = await USER.findById(req.user)
+    if(user.following.length==0)
+    {
+      const posts = await POST.find()
+      .populate("postedBy", "_id name userName image")
+      .populate("comments.postedBy", "_id userName").sort("-createdAt")
+      return res.status(200).json(posts);
+    }
+    //only fetching posts of accounts that are followed by user
     const posts = await POST.find({ postedBy: { $in: user.following } })
       .populate("postedBy", "_id name userName image")
       .populate("comments.postedBy", "_id userName").sort("-createdAt")
